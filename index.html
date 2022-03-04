@@ -1,176 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-    crossorigin="anonymous"
-  />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="app.css">
-    <title>Document</title>
+  <title>Document</title>
 </head>
+
 <body>
-      <!--Main NavBar-->
-      <nav id="mainNavbar" class="navbar navbar-dark bg-dark navbar-expand-md py-0 fixed-top" style = "background-color: #343A40; ">
-        <a href="index.html" class="navbar-brand">PlanAt</a> 
-        <button class="navbar-toggler" data-toggle="collapse" aria-label="Collapse for Navagation"
-            data-target="#navlinks">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navlinks">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">HOME</a>
-                </li>
-                <li class="nav-item" id = "drop-button">
-                    <div class="btn-group">
-                  <a href = "#"><button type="button" class="btn btn-danger" style="background-color: #343A40; border-color: #343A40; color: #A9A9A9; margin-top: 1px">Planning</button></a>
-                  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 1px; background-color: #343A40; border-color: #343A40;">
-                      <span class="visually-hidden"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">a</a></li>
-                      <li><a class="dropdown-item" href="#">a</a></li>
-                      <li><a class="dropdown-item" href="#">a</a></li>               
-                    </ul>
-                  </div>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Friends</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about-us.html" class="nav-link">ABOUT</a>
-                </li>
+  <!-- Main NavBar
+  <nav id="mainNavbar" class="navbar navbar-dark bg-dark navbar-expand-md py-0 fixed-top"
+    style="background-color: #343A40; ">
+    <a href="index.html" class="navbar-brand">PlanAt</a>
+    <button class="navbar-toggler" data-toggle="collapse" aria-label="Collapse for Navagation" data-target="#navlinks">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navlinks">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">HOME</a>
+        </li>
+        <li class="nav-item" id="drop-button">
+          <div class="btn-group">
+            <a href="#"><button type="button" class="btn btn-danger"
+                style="background-color: #343A40; border-color: #343A40; color: #A9A9A9; margin-top: 1px">Planning</button></a>
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+              aria-expanded="false" style="margin-top: 1px; background-color: #343A40; border-color: #343A40;">
+              <span class="visually-hidden"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">a</a></li>
+              <li><a class="dropdown-item" href="#">a</a></li>
+              <li><a class="dropdown-item" href="#">a</a></li>
             </ul>
-        </div>
-    </nav>
-   
-
-    <div id="home">
-        <div class="landing-text">
-          <h1>PLAN-AT</h1>
-          <h2>Transform your scheduling</h2>
-          <a href="#" class="btn btn-default btn-lg">Get Started</a>
-        </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">Friends</a>
+        </li>
+        <li class="nav-item">
+          <a href="about-us.html" class="nav-link">ABOUT</a>
+        </li>
+      </ul>
     </div>
-    
+  </nav> -->
+ <nav class = "navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type = "button" class="navbar-toggle" data-toggle ="collapse" data-target="#navbar-collapse-main">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class ="navbar-brand" href="#"><img src="images\planAt.png" alt="planAt logo looks like saturn"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse-main">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <div class="padding">
-      <div class="container">
-          <div class="row">
-            <div class="col-sm-6">
-              <img src="C:\Users\s-stewartlu\OneDrive\CS special topics\planAt.png" alt="very cool planet. Logo for planat get it ">
-            </div>
-            <div class="col-sm-6 text-center">
-              <h2>All about PlanAt</h2>
-              <p class="lead"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quas. Praesentium nostrum dolorum reprehenderit nihil maxime a aperiam odit tempore nobis necessitatibus repudiandae totam qui unde perspiciatis, obcaecati eligendi illo?</p>
-              <p class="lead"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quas. Praesentium nostrum dolorum reprehenderit nihil maxime a aperiam odit tempore nobis necessitatibus repudiandae totam qui unde perspiciatis, obcaecati eligendi illo?</p>
-            </div>
-          </div>
-      </div>
-
+  <div id="home">
+    <div class="landing-text">
+      <h1>PLAN-AT</h1>
+      <h2>Transform your scheduling</h2>
+      <a href="#" class="btn btn-default btn-lg">Get Started</a>
     </div>
+  </div>
 
 
-    <div class="padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
-              <h2>Sync your calendar</h2>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque odit minima dolorem repellendus rerum voluptatem ipsa facilis nihil obcaecati labore voluptates magni necessitatibus temporibus, architecto molestias quia sequi ab reiciendis.</p>
-
-          </div>
-          <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
-            <img src="images\planAt.png" alt="" class="img-responsive">
-          </div>
-          <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
-            <h2>Find Your Friends</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur est eius quae et vero, repellendus id culpa quidem at porro quod magni dicta, iure dolor, accusamus magnam laudantium sunt qui?</p>
-          </div>
-          <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
-            <img src="images\planAt.png" alt="" class="img-responsive">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="fixed"></div>
-
-    <div class="padding">
-      <div class="container">
-          <div class="row">
-            <div class="col-sm-6">
-              <h4>Here's why you should be using PlanAt...</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore eaque quidem minima possimus vero corporis? Quos cum eum quae nulla voluptatum? Inventore recusandae nostrum rerum eos error excepturi provident!</p>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, molestiae delectus omnis quis aut nam atque sit praesentium accusantium laborum, tempore sunt cumque doloremque optio repellat labore? Perferendis, dicta impedit!</p>
-            </div>
-            <div class="col-sm-6">
-              <img src="C:\Users\s-stewartlu\OneDrive\CS special topics\planAt.png" alt="very cool planet. Logo for planat get it ">
-            </div>
-          </div>
-      </div>
-    </div>
-
-
-
-    <div class = "d-flex justify-content-center">
-    <h1>Hello world!</h1>
-    </div>
-    <h2><i>PlanAt is based fffffffff</i></h2>
-    <p>Welcome to PlanAt, Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea pariatur esse officiis iste cum natus accusantium vel et! Nulla illo maxime earum aperiam, magni consequatur saepe voluptatum tempora delectus suscipit!</p>
-    <img src="C:\Users\s-stewartlu\OneDrive\CS special topics\planAt.png" alt="very cool planet. Logo for planat get it ">
-    <div class="container mt-5">
-       
-        <h2>Sign Up Now!</h2>
-        <form class="row g-3">
-          <div class="col-md-6">
-            <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" required>
-          </div>
-          <div class="col-md-6">
-            <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" required>
-          </div>
-          <div class="col-md-8">
-            <label for="emailInfo" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="emailInfo" required>
-          </div>
-          <div class="col-md-4">
-            <label for="phoneNumber" class="form-label">Phone Number</label>
-            <input type="text" class="form-control" id="phoneNumber" placeholder="+1 (425) 111-1111">
-          </div>
-          <div class="col-md-12">
-            <label for="comments" class="form-label">Comments, questions?</label>
-            <textarea class="form-control" id="comments" rows="3"></textarea>
-          </div>
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-    </div>
-    <footer class="container-fluid text-center">
+  <div class="padding">
+    <div class="container">
       <div class="row">
-        <div class="col-sm-4">
-          <h3>Connect with us</h3>
-          <br>
-          <a href="#" class="fa fa-facebook"></a>
-          <a href="#" class="fa fa-github"></a>
-          <a href="#" class="fa fa-google"></a>
+        <div class="col-sm-6">
+          <img src="C:\Users\s-stewartlu\OneDrive\CS special topics\planAt.png"
+            alt="very cool planet. Logo for planat get it ">
         </div>
-        <div class="col-sm-4">
-          <h3>Contact Us!</h3>
-          <br>
-          <h4>Our info is right here</h4>
-        </div>
-        <div class="col-sm-4">
-          <img src="images\planAt.png" alt="" class="icon">
+        <div class="col-sm-6 text-center">
+          <h2>All about PlanAt</h2>
+          <p class="lead"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quas. Praesentium nostrum
+            dolorum reprehenderit nihil maxime a aperiam odit tempore nobis necessitatibus repudiandae totam qui unde
+            perspiciatis, obcaecati eligendi illo?</p>
+          <p class="lead"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, quas. Praesentium nostrum
+            dolorum reprehenderit nihil maxime a aperiam odit tempore nobis necessitatibus repudiandae totam qui unde
+            perspiciatis, obcaecati eligendi illo?</p>
         </div>
       </div>
+    </div>
 
-    </footer>
-    
+  </div>
+
+
+  <div class="padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
+          <h2>Sync your calendar</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque odit minima dolorem repellendus rerum
+            voluptatem ipsa facilis nihil obcaecati labore voluptates magni necessitatibus temporibus, architecto
+            molestias quia sequi ab reiciendis.</p>
+
+        </div>
+        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
+          <img src="images\planAt.png" alt="" class="img-responsive">
+        </div>
+        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
+          <h2>Find Your Friends</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur est eius quae et vero, repellendus id
+            culpa quidem at porro quod magni dicta, iure dolor, accusamus magnam laudantium sunt qui?</p>
+        </div>
+        <div class="col-md-3 col-lg-3 col-xs-12 col-sm-6">
+          <img src="images\planAt.png" alt="" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="fixed"></div>
+
+  <div class="padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4>Here's why you should be using PlanAt...</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus tempore eaque quidem minima possimus
+            vero corporis? Quos cum eum quae nulla voluptatum? Inventore recusandae nostrum rerum eos error excepturi
+            provident!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, molestiae delectus omnis quis aut nam
+            atque sit praesentium accusantium laborum, tempore sunt cumque doloremque optio repellat labore?
+            Perferendis, dicta impedit!</p>
+        </div>
+        <div class="col-sm-6">
+          <img src="C:\Users\s-stewartlu\OneDrive\CS special topics\planAt.png"
+            alt="very cool planet. Logo for planat get it ">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="d-flex justify-content-center">
+    <h1>Hello world!</h1>
+  </div>
+  <h2><i>PlanAt is based fffffffff</i></h2>
+  <p>Welcome to PlanAt, Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea pariatur esse officiis iste cum
+    natus accusantium vel et! Nulla illo maxime earum aperiam, magni consequatur saepe voluptatum tempora delectus
+    suscipit!</p>
+  <img src="C:\Users\s-stewartlu\OneDrive\CS special topics\planAt.png" alt="very cool planet. Logo for planat get it ">
+  <div class="container mt-5">
+
+    <h2>Sign Up Now!</h2>
+    <form class="row g-3">
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="firstName" required>
+      </div>
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lastName" required>
+      </div>
+      <div class="col-md-8">
+        <label for="emailInfo" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="emailInfo" required>
+      </div>
+      <div class="col-md-4">
+        <label for="phoneNumber" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phoneNumber" placeholder="+1 (425) 111-1111">
+      </div>
+      <div class="col-md-12">
+        <label for="comments" class="form-label">Comments, questions?</label>
+        <textarea class="form-control" id="comments" rows="3"></textarea>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  <footer class="container-fluid text-center">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Connect with us</h3>
+        <br>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-github"></a>
+        <a href="#" class="fa fa-google"></a>
+      </div>
+      <div class="col-sm-4">
+        <h3>Contact Us!</h3>
+        <br>
+        <h4>Our info is right here</h4>
+      </div>
+      <div class="col-sm-4">
+        <img src="images\planAt.png" alt="" class="icon">
+      </div>
+    </div>
+
+  </footer>
+
 </body>
+
 </html>
