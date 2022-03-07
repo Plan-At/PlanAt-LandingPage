@@ -16,7 +16,7 @@ html, body{
     padding: 0 15px 6px;
 }
 #home {
-     background-image: url("./images/typing.jpeg") no-repeat center center fixed;
+     background-image: url(images\frontPage.jpg) no-repeat center center fixed;
     width: 100%;
     display: table;
     height:100%;
@@ -41,4 +41,28 @@ html, body{
 }
 #fixed{
     background: url("images/typing.jpeg");
+    display: table;
+    height: 60%;
+    position:relative;
+    width:100%;
+    background-size: cover;
+}
+footer{
+    width:100%;
+    background-color: navy;
+    padding: 5% 5% 10% 5%;
+    color:#fff;
+}
+.fa{
+    oadding:15px;
+    font-size:25px;
+    color: #fff;
+}
+
+.da:hover{
+    color: #D5D5D5;
+    text-decoration: none;
+}
+.icon{
+    max-width: 200px;
 }
