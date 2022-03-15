@@ -4,6 +4,7 @@ h1 {
 html, body{
     height: 100%;
     width: 100%;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .navbar{
@@ -15,14 +16,7 @@ html, body{
     min-height: 55px;
     padding: 0 15px 6px;
 }
-#home {
-     background-image: url("images/frontPage.jpg") no-repeat center center fixed;
-    width: 100%;
-    display: table;
-    height:100%;
-    position: relative;
-    background-size: cover;
-} 
+
 .landing-text {
     display: table-cell;
     text-align: center;
@@ -71,4 +65,20 @@ footer{
 }
 .icon{
     max-width: 200px;
+}
+#home {
+     
+    width: 100%;
+    display: table;
+    height:100%;
+    position: relative;
+    background-size: cover;
+    background-image: url("frontPage.jpg");
+} 
+body#login{
+    background-color:rgb(219,226,226);
+}
+.row{
+    background:white;
+    border-radius: 30px;
 }
