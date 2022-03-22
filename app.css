@@ -92,7 +92,7 @@ body#login {
 body {
   background-color: #435165;
 }
-#login body {
+body#page1 {
   height: 100vh;
   background: #0062e6 !important;
   display: flex;
