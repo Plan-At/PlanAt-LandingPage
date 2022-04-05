@@ -74,45 +74,35 @@
                         <div class="col-sm-3">
                           <h6 class="mb-0">Full Name</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary" id="userName">
-                          Jane Doe
-                        </div>
+                        <input class="col-sm-9 text-secondary" type="text" id="userName" placeholder="Jane Doe" disabled="true">
                       </div>
                       <hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Email</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary" id="userEmail">
-                          j@outlook.com
-                        </div>
+                        <input class="col-sm-9 text-secondary" type="text" id="email" placeholder="j@outlook.com" disabled="true">
                       </div>
                       <hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Phone</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary" id="userPhone">
-                          (100)-200-3000
-                        </div>
+                        <input class="col-sm-9 text-secondary" type="text" id="phoneNumber" placeholder="100-200-3000" disabled="true">
                       </div>
                       <hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Company</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary" id="userCompany">
-                          Sammamish
-                        </div>
+                        <input class="col-sm-9 text-secondary" type="text" id="company" placeholder="Sammamish" disabled="true">
                       </div>
                       <hr>
                       <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">Address</h6>
                         </div>
-                        <div class="col-sm-9 text-secondary" id="userCompany">
-                          Seattle, WA
-                        </div>
+                        <input class="col-sm-9 text-secondary" type="text" id="address" placeholder="Seattle, WA" disabled="true">
                       </div>
                       <hr>
                       <div class="row">
@@ -160,6 +150,8 @@
           resp = httpGet("https://api-0.752628.xyz/v1/public/user/profile?person_id=1234567890")
           console.log(resp)
           obj = JSON.parse(resp)
+
+          document.getElementById("myName").innerText = obj.naming.display_name
         </script>
 </body>
 </html>
