@@ -107,7 +107,7 @@
                       <hr>
                       <div class="row">
                         <div class="col-sm-12">
-                          <a class="btn btn-info "  href="">Update</a>
+                          <button class="btn btn-info " type="button" onclick="enable()" href="">Update</button>
                         </div>
                       </div>
                     </div>
@@ -152,6 +152,11 @@
           obj = JSON.parse(resp)
 
           document.getElementById("myName").innerText = obj.naming.display_name
+        </script>
+        <script>
+          function enable(){
+            
+          }
         </script>
 </body>
 </html>
