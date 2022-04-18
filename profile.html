@@ -67,7 +67,8 @@
                     </ul>
                   </div>
                 </div>
-                <div class="col-md-8">
+                
+                <div class="col-md-8" id="user-portfolio">
                   <div class="card mb-3">
                     <div class="card-body">
                       <div class="row">
@@ -112,6 +113,7 @@
                       </div>
                     </div>
                   </div>
+                
     
                   <div class="row gutters-sm">
                     <div class="col-sm-6 mb-3">
@@ -155,7 +157,11 @@
         </script>
         <script>
           function enable(){
+            const form = document.getElementById('user-portfolio');
             
+            $('#user-portfolio input').each(function () {
+   this.disabled='false';
+});
           }
         </script>
 </body>
