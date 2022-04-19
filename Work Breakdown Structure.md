@@ -7,5 +7,7 @@
 |15-21 feb| Wireframing| Working on mapping out the website looks, and creating a style guide| Med/High|5 days| Done| On team onenote|
 |28 Feb - 3 March| Landing page| Lucy worked on the front end of the landing page, including creating a logo/color pallete|Med| 1 week| Mainky done| Cannot set background image with css or html|
 |3 - 8 March| Sign in page front end| Translating the wireframing for sign in into real webpage| Med| 4 days| Mainly done| Same issue of background iaamge not working|
-|
+|8 - 10 March| Footer| designing a universal footer with bootstrap| Med| 1.5 days| Done| 1 hours| Scaling issue|
+|11 March| Navbar| Creating a  navbar with bootstrap| Med| 1 day| Done| 1 hour| Need to make a new logo|
+
 
