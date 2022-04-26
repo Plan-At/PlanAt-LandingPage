@@ -108,7 +108,9 @@
                       <hr>
                       <div class="row">
                         <div class="col-sm-12">
-                          <button class="btn btn-info " type="button" onclick="enable()" href="">Update</button>
+                          <button class="btn btn-info " type="button" id = "update" onclick="enable()" href="">Update</button>
+                          <button type="submit" class="btn btn save" value="save" id="save" >Save Changes</button>
+                          <button type="button" class="btn btn cancel" value="cancel" id="cancel" >Cancel</button>
                         </div>
                       </div>
                     </div>
@@ -160,9 +162,42 @@
             const form = document.getElementById('user-portfolio');
             
             $('#user-portfolio input').each(function () {
-   this.disabled='false';
+   this.disabled=false;
+     
+     
 });
           }
+        </script>
+        <script>
+          $('#update').click(function() {
+		$(this).hide();
+		$('#save, #cancel').show();
+	});
+     $('#cancel').click(function() {
+		$('#update').show();
+		$('#save, #cancel').hide();
+    const form = document.getElementById('user-portfolio');
+            
+            $('#user-portfolio input').each(function () {
+   this.disabled=true;
+     
+     
+});
+    
+	});
+	
+	$('#save').click(function() {
+		$(this).hide();
+		$('#cancel').hide();
+		$('#update').show();
+    const form = document.getElementById('user-portfolio');
+            
+            $('#user-portfolio input').each(function () {
+   this.disabled=true;
+     
+     
+});
+	});
         </script>
 </body>
 </html>
