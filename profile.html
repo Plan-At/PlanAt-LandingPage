@@ -235,11 +235,11 @@
 
     function httpPost(theUrl, body) {
               var xmlHttp = new XMLHttpRequest();
-              xmlHttp.open( "POST", theUrl, false );
+              xmlHttp.open( "POST", theUrl );
               xmlHttp.setRequestHeader("token", "aaaaaaaa"); // false for synchronous request
               xmlHttp.setRequestHeader("Accept", "application/json")
               xmlHttp.setRequestHeader("Content-Type", "application/json");
-              xmlHttp.send("eeeee");
+              xmlHttp.send(body);
               return xmlHttp.responseText;
           }
 
