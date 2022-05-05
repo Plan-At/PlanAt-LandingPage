@@ -8,12 +8,13 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="loginPage.js"></script>
   <title>Login</title>
 </head>
 <body id="login">
-  <div class="container">
+  <!-- <div class="container"> -->
     <div class="row px-3">
       <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
         <div class="img-left d-none d-md-flex"></div>
@@ -40,7 +41,7 @@
             </div>
 
             <div class="mb-3">
-              <button type="submit" class="btn btn-block text-uppercase">
+              <button id ="loginButton" type="submit" class="btn btn-block text-uppercase">
                 Login
               </button>
             </div>
@@ -87,6 +88,13 @@
         </div>
       </div>
     </div>
+    <div id="footer-placeholder"></div>
   </div>
+  <script>$(function () { $("#footer-placeholder").load("footer.html"); });</script>
+  <script type="text/javascript">
+    document.getElementById("loginButton").onclick = function () {
+        location.href = "http://127.0.0.1:5500/index.html";
+    };
+</script>
 </body>
 </html>
