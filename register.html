@@ -22,7 +22,7 @@
                   <div class="card-body p-5">
                     <h2 class="text-uppercase text-center mb-5">Create an account</h2>
       
-                    <form>
+                    <form id="userForm">
       
                       <div class="form-outline mb-4">
                         <input type="text" id="formName" class="form-control form-control-lg" required />
@@ -95,5 +95,21 @@
             location.href = "http://127.0.0.1:5500/index.html";
         };
     </script>
+    
+
+   <script>
+     $('#registerButton').click(function () {
+      
+      const form = document.getElementById('userForm');
+
+      $('#user-Form input').each(function () {
+        this.disabled = true;
+        console.log(JSON.stringify({"display_name": document.getElementById("userName").value}));
+        resp = httpPost("https://api-0.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({"display_name": document.getElementById("userName").value}));
+        console.log(resp);
+
+      });
+    });
+   </script>
 </body>
 </html>
