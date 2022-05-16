@@ -132,6 +132,7 @@
     }
 
     function httpPost(theUrl, body) {
+      console.log(body);
               var xmlHttp = new XMLHttpRequest();
               xmlHttp.open( "POST", theUrl );
               xmlHttp.setRequestHeader("pa-token", getCookie("pa-token")); // false for synchronous request
@@ -144,7 +145,8 @@
 
   <script>
     //edit this later
-    resp = httpPost("https://api.752628.xyz/v1/auth/unsafe/login", {"person_id": "1234567890", "password": "1234567890"});
+    resp = httpPost("https://api.752628.xyz/v1/auth/unsafe/login", JSON.stringify({"person_id": "1234567890", "password": "1234567890"}));
+    console.log(resp)
     console.log(resp.status)
     console.log(resp.responseText)
 
