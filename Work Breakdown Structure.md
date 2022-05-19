@@ -11,4 +11,7 @@
 |11 March| Navbar| Creating a  navbar with bootstrap| Med| 1 day| Done| 1 hour| Need to make a new logo|
 |14-17 March| Register page frontend| Translating the wireframed register page into webpage| High| 3 days| Done| Need to fix font so more uniform|
 |18 - 25 March| Profile Page| Creating the correct version of a profile page, where users can store their own information| High| 1 hour per day| Still in progress| How to update elements?|
-
+|28 - 31 March| Various error corrections| Worked on making there be none or as little warnings and error codes in the web dev window of edge as possible. This included fixing null pointer exceptions, 404 errors, not defining things properly, etc|Med| 3 days| Done, but ongoing| Cant figure out warning Query.Deferred exception:, but website is still functional?|
+|1-5 April| Connection between backend and profile page| Working on being able to correctly make get and post request's to Roy's backend when user sends input in my profile page| Med| 3 days| Done| Issue with jquery loading still. See above|
+|7 - 11 April|Writing Javascript scripts to improve transitions between pages| Used jquery and other scripts to both load the footer and create templates as well as buttons that direct you in between pages| High| 3 days| Done| Issues with the button from login that takes you to home page|
+|12-15 April| Register page backend| Communication for get and post request between user input in the form and Roy's back end server| High| 3 days| Mainly done| Issues with posting|

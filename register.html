@@ -46,18 +46,18 @@
 
                       
                       <div class="form-outline mb-4">
-                        <input type="password" id="formCompany" class="form-control form-control-lg" />
+                        <input type="text" id="formCompany" class="form-control form-control-lg" />
                         <label class="form-label" for="formCompany">Company</label>
                       </div>
 
                       
                       <div class="form-outline mb-4">
-                        <input type="password" id="formPhone" class="form-control form-control-lg" />
+                        <input type="text" id="formPhone" class="form-control form-control-lg" />
                         <label class="form-label" for="formPhone">Phone Number</label>
                       </div>
                       
                       <div class="form-outline mb-4">
-                        <input type="password" id="formAddress" class="form-control form-control-lg" />
+                        <input type="text" id="formAddress" class="form-control form-control-lg" />
                         <label class="form-label" for="formAddress">Address</label>
                       </div>
       
@@ -105,11 +105,12 @@
       $('#user-Form input').each(function () {
         this.disabled = true;
         console.log(JSON.stringify({"display_name": document.getElementById("userName").value}));
-        resp = httpPost("https://api-0.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({"display_name": document.getElementById("userName").value}));
+        resp = httpPost("https://api.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({"display_name": document.getElementById("userName").value}));
         console.log(resp);
 
       });
     });
    </script>
+   
 </body>
 </html>

@@ -180,7 +180,7 @@
       xmlHttp.send(null);
       return xmlHttp.responseText;
     }
-    resp = httpGet("https://api-0.752628.xyz/v1/public/user/profile?person_id=1234567890")
+    resp = httpGet("https://api.752628.xyz/v1/public/user/profile?person_id=1234567890")
     console.log(resp)
     obj = JSON.parse(resp)
 
@@ -224,7 +224,7 @@
       $('#user-portfolio input').each(function () {
         this.disabled = true;
         console.log(JSON.stringify({"display_name": document.getElementById("userName").value}));
-        resp = httpPost("https://api-0.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({"display_name": document.getElementById("userName").value}));
+        resp = httpPost("https://api.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({"display_name": document.getElementById("userName").value}));
         console.log(resp);
 
       });
