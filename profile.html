@@ -242,11 +242,15 @@
 
         $('#user-portfolio input').each(function () {
             this.disabled = true;
-            console.log(JSON.stringify({"display_name": document.getElementById("userName").value}));
-            let resp = httpPost("https://api.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({"display_name": document.getElementById("userName").value}));
-            console.log(resp);
-
+            // Don't send the request here
         });
+
+        console.log(JSON.stringify({"display_name": document.getElementById("userName").value}));
+        let resp = httpPost(
+            "https://api.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890",
+            JSON.stringify({"display_name": document.getElementById("userName").value})
+        );
+        console.log(resp);
     });
 
     function httpPost(theUrl, body) {
@@ -261,8 +265,12 @@
 </script>
 
 <script>
-    $(function () {$("#navbar-placeholder").load("navbar.html");});
-    $(function () {$("#footer-placeholder").load("footer.html");});
+    $(function () {
+        $("#navbar-placeholder").load("navbar.html");
+    });
+    $(function () {
+        $("#footer-placeholder").load("footer.html");
+    });
 </script>
 
 </body>
