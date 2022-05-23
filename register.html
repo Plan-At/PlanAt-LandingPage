@@ -68,7 +68,7 @@
                                         <label class="form-label" for="formPhone">Phone Number</label>
                                     </div>
 
-                                   
+
                                     <div class="form-check d-flex justify-content-center mb-5">
                                         <label class="form-check-label" for="form2Example3g">
                                             I agree all statements in <a href="#!" class="text-body"><u>Terms of
@@ -146,11 +146,13 @@
             xmlHttp.open("POST", "https://api.752628.xyz/v2/auth/token/generate");
             xmlHttp.setRequestHeader("Accept", "application/json")
             xmlHttp.setRequestHeader("Content-Type", "application/json");
+            xmlHttp.setRequestHeader("password", document.getElementById("formPassword").value);
             xmlHttp.send(JSON.stringify({
                 "naming": {
                     "unique_name": "string",
                     "display_name_partial": "string",
                     "display_name_full": document.getElementById("formName").value
+
                 },
                 "picture": {
                     "avatar": {
@@ -161,6 +163,12 @@
                         "image_id": "string",
                         "image_url": "string"
                     }
+                },
+                "about": {
+                    "short_description": "string",
+                    "full_description": "string",
+                    "company_name": document.getElementById("formCompany").value,
+                    "job_title": "string"
                 },
                 "status": {
                     "current_status": "string",
@@ -181,14 +189,7 @@
                         "country_code": "string",
                         "regular_number": "string"
                     },
-                    "physical_address": {
-                        "street_address": "string",
-                        "city": "string",
-                        "province": "string",
-                        "country": "string",
-                        "continent": "string",
-                        "post_code": "string"
-                    },
+
                     "twitter": {
                         "user_name": "string",
                         "user_handle": "string",
