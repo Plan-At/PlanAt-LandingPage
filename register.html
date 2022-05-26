@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <title>Register</title>
+    <title>Register - PlanAt</title>
 </head>
 
 <body>
@@ -118,7 +118,7 @@
                     document.getElementById("registraionStatus").innerText = "Registration Success";
                     document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
                 } else {
-                    alert("failed to register  " + this.responseText)
+                    alert("failed to register  "+ this.status + " " + this.responseText)
                 }
             };
             xmlHttp.open("POST", "https://api.752628.xyz/v2/user/create");
