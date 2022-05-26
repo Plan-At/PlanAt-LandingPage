@@ -117,13 +117,12 @@
                 alert("failed to login  " + this.responseText)
             }
         };
-        xmlHttp.open("POST", "https://api.752628.xyz/v2/auth/token/generate");
+        xmlHttp.open("POST", "https://api.752628.xyz/v2/auth/password/verify");
         xmlHttp.setRequestHeader("Accept", "application/json")
         xmlHttp.setRequestHeader("Content-Type", "application/json");
         xmlHttp.send(JSON.stringify({
             "person_id": document.getElementById("userEmail").value,
             "password": document.getElementById("userPassword").value
-            
         }));
 
         // This will send the requests 3 times!

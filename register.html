@@ -90,7 +90,10 @@
                                             href="login2.html" class="fw-bold text-body"><u>Login here</u></a></p>
 
                                 </form>
-
+                                <div class="text-center">
+                                    <p id="registraionStatus"></p>
+                                    <p id="assignedID"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -101,56 +104,32 @@
     <div id="footer-placeholder"></div>
 
 
-    <script type="text/javascript">
-        document.getElementById("registerButton").onclick = function () {
-            window.location.href = "index.html";
-        };
-    </script>
-
-
-    <script>
-        $('#registerButton').click(function () {
-
-            const form = document.getElementById('userForm');
-
-            $('#user-Form input').each(function () {
-                this.disabled = true;
-                console.log(JSON.stringify({ "display_name": document.getElementById("formName").value }));
-                resp = httpPost("https://api.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({ "display_name": document.getElementById("formName").value }));
-                console.log(resp);
-
-            });
-        });
-    </script>
-
     <script type="module">
-        import { setCookie } from "./static/js/cookies.js"; // need set to code block to type="module"
-
         $('#registerButton').click(function () {
             console.log("register button clicked");
-            console.log(JSON.stringify({
-                "person_id": document.getElementById("formEmail").value,
-                "password": document.getElementById("formPassword").value
-            }));
+            document.getElementById("registerButton").disabled = true; // once the button being clicked, lock it to prevent duplicated action
 
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.onload = function () {
                 console.log(this.responseText, this.status);
                 if (this.status === 200) {
-                    setCookie("pa-token", JSON.parse(this.responseText)["pa_token"]);
-                    console.log("pa-token set to cookie")
+                    let resp_json = JSON.parse(this.responseText);
+                    console.log(resp_json);
+                    document.getElementById("registraionStatus").innerText = "Registration Success";
+                    document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
                 } else {
-                    alert("failed to login  " + this.responseText)
+                    alert("failed to register  " + this.responseText)
                 }
             };
-            xmlHttp.open("POST", "https://api.752628.xyz/v2/auth/token/generate");
-            xmlHttp.setRequestHeader("Accept", "application/json")
+            xmlHttp.open("POST", "https://api.752628.xyz/v2/user/create");
+            xmlHttp.setRequestHeader("Accept", "application/json");
             xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.setRequestHeader("password", document.getElementById("formPassword").value);
+            // TODO: validate the input locally
             xmlHttp.send(JSON.stringify({
                 "naming": {
                     "unique_name": "string",
-                    "display_name_partial": "string",
+                    "display_name_partial": document.getElementById("formName").value,
                     "display_name_full": document.getElementById("formName").value
 
                 },
@@ -189,11 +168,23 @@
                         "country_code": "string",
                         "regular_number": "string"
                     },
-
+                    "physical_address": {
+                        "full_address": "string",
+                        "street_address": "string",
+                        "city": "string",
+                        "province": "string",
+                        "country": "string",
+                        "continent": "string",
+                        "post_code": "string"
+                    },
                     "twitter": {
                         "user_name": "string",
                         "user_handle": "string",
                         "user_id": "string"
+                    },
+                    "github": {
+                        "user_name": "string",
+                        "user_handle": "string"
                     }
                 }
             }));
@@ -206,5 +197,4 @@
     </script>
 
 </body>
-
 </html>
