@@ -1,135 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <title>Register</title>
+    <title>Register - PlanAt</title>
 </head>
+
 <body>
-<div id="navbar-placeholder"></div>
-<section class="vh-100 bg-image"
-         style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+    <div id="navbar-placeholder"></div>
+    <section class="vh-100 bg-image"
+        style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-                            <form id="userForm">
+                                <form id="userForm">
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="formName" class="form-control form-control-lg" required/>
-                                    <label class="form-label" for="formName">Your Name</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="formName" class="form-control form-control-lg"
+                                            required />
+                                        <label class="form-label" for="formName">Your Name</label>
+                                    </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="email" id="formEmail" class="form-control form-control-lg" required/>
-                                    <label class="form-label" for="formEmail">Your Email</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="formEmail" class="form-control form-control-lg"
+                                            required />
+                                        <label class="form-label" for="formEmail">Your Email</label>
+                                    </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="password" id="formPassword" class="form-control form-control-lg"
-                                           required/>
-                                    <label class="form-label" for="formPassword">Password</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="formPassword" class="form-control form-control-lg"
+                                            required />
+                                        <label class="form-label" for="formPassword">Password</label>
+                                    </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="password" id="formPasswordRepeat" class="form-control form-control-lg"
-                                           required/>
-                                    <label class="form-label" for="formPasswordRepeat">Repeat your password</label>
-                                </div>
-
-
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="formCompany" class="form-control form-control-lg"/>
-                                    <label class="form-label" for="formCompany">Company</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="formPasswordRepeat"
+                                            class="form-control form-control-lg" required />
+                                        <label class="form-label" for="formPasswordRepeat">Repeat your password</label>
+                                    </div>
 
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="formPhone" class="form-control form-control-lg"/>
-                                    <label class="form-label" for="formPhone">Phone Number</label>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="formCompany" class="form-control form-control-lg" />
+                                        <label class="form-label" for="formCompany">Company</label>
+                                    </div>
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="formAddress" class="form-control form-control-lg"/>
-                                    <label class="form-label" for="formAddress">Address</label>
-                                </div>
 
-                                <div class="form-check d-flex justify-content-center mb-5">
-                                    <label class="form-check-label" for="form2Example3g">
-                                        I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
-                                    </label>
-                                    <input
-                                            class="form-check-input me-2"
-                                            type="checkbox"
-                                            value=""
-                                            id="form2Example3cg"
-                                    />
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="formPhone" class="form-control form-control-lg" />
+                                        <label class="form-label" for="formPhone">Phone Number</label>
+                                    </div>
 
-                                </div>
 
-                                <div class="d-flex justify-content-center">
-                                    <button id="registerButton" type="button"
+                                    <div class="form-check d-flex justify-content-center mb-5">
+                                        <label class="form-check-label" for="form2Example3g">
+                                            I agree all statements in <a href="#!" class="text-body"><u>Terms of
+                                                    service</u></a>
+                                        </label>
+                                        <input class="form-check-input me-2" type="checkbox" value=""
+                                            id="form2Example3cg" />
+
+                                    </div>
+
+                                    <div class="d-flex justify-content-center">
+                                        <button id="registerButton" type="button"
                                             class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
-                                        Register
-                                    </button>
+                                            Register
+                                        </button>
+                                    </div>
+
+                                    <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
+                                            href="login.html" class="fw-bold text-body"><u>Login here</u></a></p>
+
+                                </form>
+                                <div class="text-center">
+                                    <p id="registraionStatus"></p>
+                                    <p id="assignedID"></p>
                                 </div>
-
-                                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
-                                        href="login2.html" class="fw-bold text-body"><u>Login here</u></a></p>
-
-                            </form>
-
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<div id="footer-placeholder"></div>
+    </section>
+    <div id="footer-placeholder"></div>
 
 
-<script type="text/javascript">
-    document.getElementById("registerButton").onclick = function () {
-        window.location.href = "index.html";
-    };
-</script>
+    <script type="module">
+        $('#registerButton').click(function () {
+            console.log("register button clicked");
+            document.getElementById("registerButton").disabled = true; // once the button being clicked, lock it to prevent duplicated action
 
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onload = function () {
+                console.log(this.responseText, this.status);
+                if (this.status === 200) {
+                    let resp_json = JSON.parse(this.responseText);
+                    console.log(resp_json);
+                    document.getElementById("registraionStatus").innerText = "Registration Success";
+                    document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
+                } else {
+                    alert("failed to register  "+ this.status + " " + this.responseText)
+                }
+            };
+            xmlHttp.open("POST", "https://api.752628.xyz/v2/user/create");
+            xmlHttp.setRequestHeader("Accept", "application/json");
+            xmlHttp.setRequestHeader("Content-Type", "application/json");
+            xmlHttp.setRequestHeader("password", document.getElementById("formPassword").value);
+            // TODO: validate the input locally
+            xmlHttp.send(JSON.stringify({
+                "naming": {
+                    "unique_name": "string",
+                    "display_name_partial": document.getElementById("formName").value,
+                    "display_name_full": document.getElementById("formName").value
 
-<script>
-    $('#registerButton').click(function () {
-
-        const form = document.getElementById('userForm');
-
-        $('#user-Form input').each(function () {
-            this.disabled = true;
-            console.log(JSON.stringify({"display_name": document.getElementById("userName").value}));
-            resp = httpPost("https://api.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890", JSON.stringify({"display_name": document.getElementById("userName").value}));
-            console.log(resp);
-
+                },
+                "picture": {
+                    "avatar": {
+                        "image_id": "string",
+                        "image_url": "string"
+                    },
+                    "background": {
+                        "image_id": "string",
+                        "image_url": "string"
+                    }
+                },
+                "about": {
+                    "short_description": "string",
+                    "full_description": "string",
+                    "company_name": document.getElementById("formCompany").value,
+                    "job_title": "string"
+                },
+                "status": {
+                    "current_status": "string",
+                    "until": {
+                        "text": "string",
+                        "timestamp_int": 0,
+                        "timezone_name": "string",
+                        "timezone_offset": 0
+                    },
+                    "default_status": "string"
+                },
+                "contact_method_collection": {
+                    "email_primary": {
+                        "domain_name": "string",
+                        "full_address": document.getElementById("formEmail").value
+                    },
+                    "phone": {
+                        "country_code": "string",
+                        "regular_number": "string"
+                    },
+                    "physical_address": {
+                        "full_address": "string",
+                        "street_address": "string",
+                        "city": "string",
+                        "province": "string",
+                        "country": "string",
+                        "continent": "string",
+                        "post_code": "string"
+                    },
+                    "twitter": {
+                        "user_name": "string",
+                        "user_handle": "string",
+                        "user_id": "string"
+                    },
+                    "github": {
+                        "user_name": "string",
+                        "user_handle": "string"
+                    }
+                }
+            }));
         });
-    });
-</script>
+    </script>
 
-<script>
-    $(function () {$("#navbar-placeholder").load("navbar.html");});
-    $(function () {$("#footer-placeholder").load("footer.html");});
-</script>
+    <script>
+        $(function () { $("#navbar-placeholder").load("navbar.html"); });
+        $(function () { $("#footer-placeholder").load("footer.html"); });
+    </script>
 
 </body>
 </html>
