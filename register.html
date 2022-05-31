@@ -110,12 +110,18 @@
             console.log("register button clicked");
             document.getElementById("registerButton").disabled = true; // once the button being clicked, lock it to prevent duplicated action
             if ( document.getElementById("formName").value === ""){
-                alert("You need enter an username");
+                if(confirm('You need to enter a username')){
+                     window.location.reload();  
+                    }
             }else if ( document.getElementById("formPassword").value === ""){
-                alert("You need enter a password");
+                if(confirm('You need to enter a password')){
+                     window.location.reload();  
+                    }
             }
             else if( document.getElementById("formPasswordRepeat").value != document.getElementById("formPassword").value ){
-                    alert("Password and password repeat must match");
+                if(confirm('Password and repeat password values must match')){
+                     window.location.reload();  
+                    }
             }
             else {
                 var xmlHttp = new XMLHttpRequest();
@@ -126,6 +132,7 @@
                         console.log(resp_json);
                         document.getElementById("registraionStatus").innerText = "Registration Success";
                         document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
+                        location.href = "http://127.0.0.1:5500/index.html"
                     } else {
                         alert("failed to register  "+ this.status + " " + this.responseText)
                     }
