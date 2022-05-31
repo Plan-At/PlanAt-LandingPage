@@ -40,7 +40,7 @@
 
                                     <div class="form-outline mb-4">
                                         <input type="email" id="formEmail" class="form-control form-control-lg"
-                                            required />
+                                            required="required" />
                                         <label class="form-label" for="formEmail">Your Email</label>
                                     </div>
 
@@ -80,10 +80,11 @@
                                     </div>
 
                                     <div class="d-flex justify-content-center">
-                                        <button id="registerButton" type="button"
-                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
+                                        <input id="registerButton" type="submit"
+                                            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                            onclick="onRegisterButton()">
                                             Register
-                                        </button>
+                                    </input>
                                     </div>
 
                                     <p class="text-center text-muted mt-5 mb-0">Have already an account? <a
@@ -104,91 +105,100 @@
     <div id="footer-placeholder"></div>
 
 
-    <script type="module">
-        $('#registerButton').click(function () {
+    <script>
+        function onRegisterButton() {
             console.log("register button clicked");
             document.getElementById("registerButton").disabled = true; // once the button being clicked, lock it to prevent duplicated action
-
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onload = function () {
-                console.log(this.responseText, this.status);
-                if (this.status === 200) {
-                    let resp_json = JSON.parse(this.responseText);
-                    console.log(resp_json);
-                    document.getElementById("registraionStatus").innerText = "Registration Success";
-                    document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
-                } else {
-                    alert("failed to register  "+ this.status + " " + this.responseText)
-                }
-            };
-            xmlHttp.open("POST", "https://api.752628.xyz/v2/user/create");
-            xmlHttp.setRequestHeader("Accept", "application/json");
-            xmlHttp.setRequestHeader("Content-Type", "application/json");
-            xmlHttp.setRequestHeader("password", document.getElementById("formPassword").value);
-            // TODO: validate the input locally
-            xmlHttp.send(JSON.stringify({
-                "naming": {
-                    "unique_name": "string",
-                    "display_name_partial": document.getElementById("formName").value,
-                    "display_name_full": document.getElementById("formName").value
-
-                },
-                "picture": {
-                    "avatar": {
-                        "image_id": "string",
-                        "image_url": "string"
-                    },
-                    "background": {
-                        "image_id": "string",
-                        "image_url": "string"
+            if ( document.getElementById("formName").value === ""){
+                alert("You need enter an username");
+            }else if ( document.getElementById("formPassword").value === ""){
+                alert("You need enter a password");
+            }
+            else if( document.getElementById("formPasswordRepeat").value != document.getElementById("formPassword").value ){
+                    alert("Password and password repeat must match");
+            }
+            else {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.onload = function () {
+                    console.log(this.responseText, this.status);
+                    if (this.status === 200) {
+                        let resp_json = JSON.parse(this.responseText);
+                        console.log(resp_json);
+                        document.getElementById("registraionStatus").innerText = "Registration Success";
+                        document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
+                    } else {
+                        alert("failed to register  "+ this.status + " " + this.responseText)
                     }
-                },
-                "about": {
-                    "short_description": "string",
-                    "full_description": "string",
-                    "company_name": document.getElementById("formCompany").value,
-                    "job_title": "string"
-                },
-                "status": {
-                    "current_status": "string",
-                    "until": {
-                        "text": "string",
-                        "timestamp_int": 0,
-                        "timezone_name": "string",
-                        "timezone_offset": 0
+                };
+                xmlHttp.open("POST", "https://api.752628.xyz/v2/user/create");
+                xmlHttp.setRequestHeader("Accept", "application/json");
+                xmlHttp.setRequestHeader("Content-Type", "application/json");
+                xmlHttp.setRequestHeader("password", document.getElementById("formPassword").value);
+                // TODO: validate the input locally
+                xmlHttp.send(JSON.stringify({
+                    "naming": {
+                        "unique_name": "string",
+                        "display_name_partial": document.getElementById("formName").value,
+                        "display_name_full": document.getElementById("formName").value
+
                     },
-                    "default_status": "string"
-                },
-                "contact_method_collection": {
-                    "email_primary": {
-                        "domain_name": "string",
-                        "full_address": document.getElementById("formEmail").value
+                    "picture": {
+                        "avatar": {
+                            "image_id": "string",
+                            "image_url": "string"
+                        },
+                        "background": {
+                            "image_id": "string",
+                            "image_url": "string"
+                        }
                     },
-                    "phone": {
-                        "country_code": "string",
-                        "regular_number": "string"
+                    "about": {
+                        "short_description": "string",
+                        "full_description": "string",
+                        "company_name": document.getElementById("formCompany").value,
+                        "job_title": "string"
                     },
-                    "physical_address": {
-                        "full_address": "string",
-                        "street_address": "string",
-                        "city": "string",
-                        "province": "string",
-                        "country": "string",
-                        "continent": "string",
-                        "post_code": "string"
+                    "status": {
+                        "current_status": "string",
+                        "until": {
+                            "text": "string",
+                            "timestamp_int": 0,
+                            "timezone_name": "string",
+                            "timezone_offset": 0
+                        },
+                        "default_status": "string"
                     },
-                    "twitter": {
-                        "user_name": "string",
-                        "user_handle": "string",
-                        "user_id": "string"
-                    },
-                    "github": {
-                        "user_name": "string",
-                        "user_handle": "string"
+                    "contact_method_collection": {
+                        "email_primary": {
+                            "domain_name": "string",
+                            "full_address": document.getElementById("formEmail").value
+                        },
+                        "phone": {
+                            "country_code": "string",
+                            "regular_number": "string"
+                        },
+                        "physical_address": {
+                            "full_address": "string",
+                            "street_address": "string",
+                            "city": "string",
+                            "province": "string",
+                            "country": "string",
+                            "continent": "string",
+                            "post_code": "string"
+                        },
+                        "twitter": {
+                            "user_name": "string",
+                            "user_handle": "string",
+                            "user_id": "string"
+                        },
+                        "github": {
+                            "user_name": "string",
+                            "user_handle": "string"
+                        }
                     }
-                }
-            }));
-        });
+                }));
+            }
+        }
     </script>
 
     <script>
