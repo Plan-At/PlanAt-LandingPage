@@ -133,7 +133,7 @@
                         document.getElementById("registraionStatus").innerText = "Registration Success";
                         document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
                         alert(`Registration successful\nPerson ID: ${resp_json["person_id"]}`);
-                        // location.href = "http://127.0.0.1:5500/index.html"
+                         location.href = "http://127.0.0.1:5500/index.html"
                     } else {
                         alert("failed to register  "+ this.status + " " + this.responseText)
                     }
