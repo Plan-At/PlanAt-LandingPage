@@ -31,7 +31,7 @@
                         <!--User profile section-->
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwvzSjkssPQTEv9fbHMYBeieEJvzak_VAGHIEaEVloIW2rjCQ8US3R5LxHcm9eB3xr2To:https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg&usqp=CAU"
-                                alt="Admin" class="rounded-circle" width="150">
+                                alt="User's Profile Picture" class="rounded-circle" width="150" id="profilePicture">
                             <div class="mt-3">
                                 <!--User information-->
                                 <h4 id="myName">Jane Doe</h4>
@@ -208,6 +208,8 @@
                 console.log(pasredJSON);
                 document.getElementById("myName").innerText = pasredJSON["naming"]["display_name_full"];
                 document.getElementById("userName").placeholder = pasredJSON["naming"]["display_name_full"];
+                document.getElementById("profilePicture").src = pasredJSON["picture"]["avatar"]["image_url"];
+                document.getElementById("profilePic").src = pasredJSON["picture"]["avatar"]["image_url"]; // the one on the navbar
             });
     </script>
 
@@ -276,15 +278,6 @@
                 });
         });
 
-        function httpPost(theUrl, body) {
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("POST", theUrl);
-            xmlHttp.setRequestHeader("pa-token", getCookie("pa-token")); // false for synchronous request
-            xmlHttp.setRequestHeader("Accept", "application/json")
-            xmlHttp.setRequestHeader("Content-Type", "application/json");
-            xmlHttp.send(body);
-            return xmlHttp.responseText;
-        }
         //profile picture script
         function uploadImage() {
             //this uploads an image to the server
@@ -301,19 +294,29 @@
             //backgrounds not implemented
             var imgId = results.image_id;
             var imgUrl = results.image_url;
-            httpPost("https://api.752628.xyz/v2/user/profile/picture/update", JSON.stringify(
+            fetch(
+                "https://api.752628.xyz/v2/user/profile/picture/update",
                 {
-                    "avatar": {
-                        "image_id": imgId,
-                        "image_url": imgUrl
-                    },
-                    "background": {
-                        "image_id": "!!NOT IMPLEMENTED!!",
-                        "image_url": "!!NOT IMPLEMENTED!!"
-                    }
+                    method: "POST",
+                    headers: POST_HEADER,
+                    body: JSON.stringify({
+                        "avatar": {
+                            "image_id": imgId,
+                            "image_url": imgUrl
+                        },
+                        "background": {
+                            "image_id": "!!NOT IMPLEMENTED!!",
+                            "image_url": "!!NOT IMPLEMENTED!!"
+                        }
 
+                    })
                 }
-            ))
+            )
+                .then((resp) => resp.json())
+                .then((pasredJSON) => {
+                    console.log(pasredJSON);
+                    location.reload();
+                });
             form.style.display = "none";
             profUpdateBtn.style.display = "block";
         }
