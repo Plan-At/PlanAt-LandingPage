@@ -39,6 +39,15 @@
                             <p class="text-muted font-size-sm" id="userLocation">Seattle, WA</p>
                             <button class="btn btn-primary">Follow</button>
                             <button class="btn btn-outline-primary">Message</button>
+                            <!--change profile picture button + form-->
+                            <button class="btn btn-success" id="changeProf">Change Profile Picture</button>
+                            <form method="post" enctype="multipart/form-data" id="imgSubmitForm" hidden>
+                                <label for="file">Choose file to upload</label><br>
+                                <input type="file" id="file" name="image_file" accept="image/*">
+                                <input type="text" name="pa_token_form" value="aaaaaaaa" hidden>
+                                <input class="btn btn-primary" type="submit" value="Submit">
+                              </form>
+                              <!--end of profile pic html-->
                         </div>
                     </div>
                 </div>
@@ -265,6 +274,50 @@
         xmlHttp.send(body);
         return xmlHttp.responseText;
     }
+    //profile picture script
+    function uploadImage() {
+      //this uploads an image to the server
+      //references the above form
+      const xhr = new XMLHttpRequest();
+      const fd = new FormData(form)
+      xhr.addEventListener("load", function(event) {changeProfile(JSON.parse(event.target.responseText))})
+      xhr.addEventListener("error", function(event) {alert("error :(")})
+      xhr.open("POST", "https://api.752628.xyz/v2/hosting/image/upload");
+      xhr.send(fd);
+    }
+    function changeProfile(results) {
+      //this takes in the results of the above form and formats them as a JSON and then calls http post
+      //backgrounds not implemented
+      var imgId = results.image_id;
+      var imgUrl = results.image_url;
+      httpPost("https://api.752628.xyz/v2/user/profile/picture/update", JSON.stringify(
+      {
+        "avatar": {
+          "image_id": imgId,
+          "image_url": imgUrl
+        },
+        "background": {
+          "image_id": "!!NOT IMPLEMENTED!!",
+          "image_url": "!!NOT IMPLEMENTED!!"
+        }
+
+      }
+      ))
+      form.style.display = "none";
+      profUpdateBtn.style.display = "block";
+    }
+    const form = document.getElementById("imgSubmitForm");
+    const profUpdateBtn = document.getElementById("changeProf");
+    profUpdateBtn.addEventListener("click", revealForm())
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      uploadImage()
+    })
+    function revealForm() {
+        form.style.display = "block";
+        profUpdateBtn.style.display = "none";
+    }
+    //end of profile picture script
 </script>
 
 <script>
