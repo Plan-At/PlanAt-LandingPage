@@ -1,9 +1,13 @@
+<head>
+    <link rel="stylesheet" href="app.css">
+</head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.html">PlanAt</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <!--Dropdown area-->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
@@ -12,10 +16,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="profile.html">Profile</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Friends</a>
-            </li>
-
+            <!--Tag Area-->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
@@ -33,6 +34,31 @@
             <li class="nav-item">
                 <a class="nav-link" href="login.html">Login</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.html">Logout</a>
+            </li>            
         </ul>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                 <img id ="profilePic" src="images/planAt.png" alt="very cool planet. Logo for planat get it ">
+                   <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 1</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 2</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 3</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Menu item 4</a></li>
+                </ul>
+              </div>
     </div>
 </nav>
+<script type="module">
+    import {getCookie} from "./static/js/cookies.js"; // need set to code block to type="module"
+    if(getCookie("pa-token") === "" || getCookie("pa-token") === null){
+        document.getElementById("profilePic").src = "images/defaultProfilePic.jpeg";
+    }else{
+        document.getElementById("profilePic").src = "images/planAt.png";
+    }
+</script>

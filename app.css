@@ -270,3 +270,8 @@ body#page1 {
 .shadow-none {
   box-shadow: none!important;
 }
+#profilePic{
+  object-fit: contain;
+  height:60px;
+ width: 60px;
+}
