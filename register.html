@@ -106,6 +106,13 @@
 
 
     <script>
+        function setCookie(cname,cvalue,exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+
         function onRegisterButton() {
             console.log("register button clicked");
             document.getElementById("registerButton").disabled = true; // once the button being clicked, lock it to prevent duplicated action
@@ -132,10 +139,33 @@
                         console.log(resp_json);
                         document.getElementById("registraionStatus").innerText = "Registration Success";
                         document.getElementById("assignedID").innerText = `Person ID: ${resp_json["person_id"]}`;
+                        // Automatically login if account created
+                        console.log(JSON.stringify({
+                            "person_id": resp_json["person_id"],
+                            "password": document.getElementById("formPassword").value
+                        }));
+                        var xmlHttp2 = new XMLHttpRequest();
+                        xmlHttp2.onload = function () {
+                            console.log(this.responseText, this.status);
+                            if (this.status === 200) {
+                                setCookie("pa-token", JSON.parse(this.responseText)["pa_token"]);
+                                console.log("pa-token set to cookie")
+                            } else {
+                                alert("failed to login  " + this.responseText)
+                            }
+                        };
+                        xmlHttp2.open("POST", "https://api.752628.xyz/v2/auth/password/verify");
+                        xmlHttp2.setRequestHeader("Accept", "application/json")
+                        xmlHttp2.setRequestHeader("Content-Type", "application/json");
+                        xmlHttp2.send(JSON.stringify({
+                            "person_id": resp_json["person_id"],
+                            "password": document.getElementById("formPassword").value
+                        }));
+                        // 
                         alert(`Registration successful\nPerson ID: ${resp_json["person_id"]}`);
-                         location.href = "http://127.0.0.1:5500/index.html"
+                        // location.href = "http://127.0.0.1:5500/index.html";
                     } else {
-                        alert("failed to register  "+ this.status + " " + this.responseText)
+                        alert("failed to register  "+ this.status + " " + this.responseText);
                     }
                 };
                 xmlHttp.open("POST", "https://api.752628.xyz/v2/user/create");
