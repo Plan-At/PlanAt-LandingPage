@@ -202,20 +202,16 @@
 <div id="footer-placeholder"></div>
 
 <script>
-    function httpGet(theUrl) {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", theUrl, false); // false for synchronous request
-        xmlHttp.send(null);
-        return xmlHttp.responseText;
-    }
-
-    resp = httpGet("https://api.752628.xyz/v1/public/user/profile?person_id=1234567890")
-    console.log(resp)
-    obj = JSON.parse(resp)
-
-    document.getElementById("myName").innerText = obj.naming.display_name
-    document.getElementById("userName").placeholder = obj.naming.display_name
+    // TODO: put actual person_id here
+    fetch("https://api.752628.xyz/v2/user/profile/get?person_id=1234567890")
+    .then((resp) => resp.json())
+    .then((pasredJSON) => {
+        console.log(pasredJSON);
+        document.getElementById("myName").innerText = pasredJSON["naming"]["display_name"];
+        document.getElementById("userName").placeholder = pasredJSON["naming"]["display_name"];
+    });
 </script>
+
 <script>
     function enable() {
         const form = document.getElementById('user-portfolio');
@@ -259,7 +255,7 @@
 
         console.log(JSON.stringify({"display_name": document.getElementById("userName").value}));
         let resp = httpPost(
-            "https://api.752628.xyz/v1/update/user/profile/name/display_name?person_id=1234567890",
+            "https://api.752628.xyz/v2/user/profile/name/update",
             JSON.stringify({"display_name": document.getElementById("userName").value})
         );
         console.log(resp);
