@@ -111,7 +111,8 @@
             console.log(this.responseText, this.status);
             if (this.status === 200) {
                 setCookie("pa-token", JSON.parse(this.responseText)["pa_token"]);
-                console.log("pa-token set to cookie")
+                console.log("pa-token set to cookie");
+                alert("login success");
             } else {
                 alert("failed to login  " + this.responseText)
             }
