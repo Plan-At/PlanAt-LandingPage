@@ -90,7 +90,7 @@ section {
     transform: translateY(5px);
 }
 
-.iconbox {
+.logoBox {
     width: 54px;
     height: 54px;
     display: flex;
@@ -124,7 +124,7 @@ section {
 }
 
 
-.service:hover .iconbox {
+.service:hover .logoBox {
     background-color: var(--white);
     color: var(--primary);
 }
