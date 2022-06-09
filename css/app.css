@@ -188,8 +188,8 @@ section {
 }
 
 .team-member img {
-    width: 125px;
     height: 125px;
+    width: 125px;
     border-radius: 100px;
 }
 
@@ -221,13 +221,13 @@ section {
 
 
 form input.form-control {
-    height: 56px;
+    height: 55px;
 }
 
 form .form-control {
     border: transparent;
     border-radius: 0;
-    background-color: rgba(0,0,0,0.02);
+    background-color: rgba(0,0,0,0.021);
 }
 
 
@@ -246,7 +246,7 @@ form .form-control {
 }
 
 .footer-bottom {
-    background-color: #242933;
+    background-color: #21252e;
 }
 .recentWork {
     height: 300px;
