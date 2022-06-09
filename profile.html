@@ -41,7 +41,7 @@
                                 <button class="btn btn-outline-primary">Message</button>
                                 <!--change profile picture button + form-->
                                 <button class="btn btn-success" id="changeProf">Change Profile Picture</button>
-                                <form method="post" enctype="multipart/form-data" id="imgSubmitForm" hidden>
+                                <form method="post" enctype="multipart/form-data" id="imgSubmitForm">
                                     <label for="file">Choose file to upload</label><br>
                                     <input type="file" id="file" name="image_file" accept="image/*">
                                     <input type="text" name="pa_token_form" id="pa" value="aaaaaaaa" hidden>
@@ -325,6 +325,7 @@
         const form = document.getElementById("imgSubmitForm");
         const profUpdateBtn = document.getElementById("changeProf");
         profUpdateBtn.addEventListener("click", function() {
+            console.log("reveal");
             form.style.display = "block";
             profUpdateBtn.style.display = "none";
         })
@@ -332,6 +333,7 @@
             event.preventDefault();
             uploadImage()
         })
+        form.style.display = "none";
     //end of profile picture script
     </script>
 
