@@ -44,7 +44,7 @@
                                 <form method="post" enctype="multipart/form-data" id="imgSubmitForm" hidden>
                                     <label for="file">Choose file to upload</label><br>
                                     <input type="file" id="file" name="image_file" accept="image/*">
-                                    <input type="text" name="pa_token_form" value="aaaaaaaa" hidden>
+                                    <input type="text" name="pa_token_form" id="pa" value="aaaaaaaa" hidden>
                                     <input class="btn btn-primary" type="submit" value="Submit">
                                 </form>
                                 <!--end of profile pic html-->
@@ -282,10 +282,12 @@
         function uploadImage() {
             //this uploads an image to the server
             //references the above form
+            const paToken = document.getElementById("pa");
+            paToken.value = getCookie("pa-token");
             const xhr = new XMLHttpRequest();
             const fd = new FormData(form)
-            xhr.addEventListener("load", function (event) { changeProfile(JSON.parse(event.target.responseText)) })
-            xhr.addEventListener("error", function (event) { alert("error :(") })
+            xhr.addEventListener("load", function(event) {changeProfile(JSON.parse(event.target.responseText))})
+            xhr.addEventListener("error", function(event) {alert("error :(")})
             xhr.open("POST", "https://api.752628.xyz/v2/hosting/image/upload");
             xhr.send(fd);
         }
