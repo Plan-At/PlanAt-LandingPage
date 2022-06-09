@@ -324,15 +324,14 @@
         }
         const form = document.getElementById("imgSubmitForm");
         const profUpdateBtn = document.getElementById("changeProf");
-        profUpdateBtn.addEventListener("click", revealForm())
+        profUpdateBtn.addEventListener("click", function() {
+            form.style.display = "block";
+            profUpdateBtn.style.display = "none";
+        })
         form.addEventListener("submit", function (event) {
             event.preventDefault();
             uploadImage()
         })
-        function revealForm() {
-            form.style.display = "block";
-            profUpdateBtn.style.display = "none";
-        }
     //end of profile picture script
     </script>
 
