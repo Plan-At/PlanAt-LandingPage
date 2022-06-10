@@ -13,16 +13,18 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="profile.html">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="userCalendarPageLink" href="https://calendar.752628.xyz/" target="_blank">
+                        Calendar
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="login.html">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logout.html">Logout</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://calendar.752628.xyz/">Calendar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="register.html">Register</a>
@@ -41,6 +43,7 @@
         document.getElementById("navbarProfilePic").src = "static/image/defaultProfilePic.jpeg";
     }else{
         document.getElementById("navbarProfilePic").src = "static/image/planAt.png";
+        document.getElementById("userCalendarPageLink").href = `https://calendar.752628.xyz/?pa-token=${getCookie("pa-token")}`;
         // TODO: put actual person_id here
         fetch("https://api.752628.xyz/v2/user/profile/get?person_id=1234567890")
             .then((resp) => resp.json())
