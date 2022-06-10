@@ -113,7 +113,7 @@
                 setCookie("pa-token", JSON.parse(this.responseText)["pa_token"]);
                 console.log("pa-token set to cookie");
                 alert("login success");
-                window.location = "index.html";
+                window.location = "profile.html";
             } else {
                 alert("failed to login  " + this.responseText);
             }
