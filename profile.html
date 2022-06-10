@@ -44,7 +44,7 @@
                                 <form method="post" enctype="multipart/form-data" id="imgSubmitForm">
                                     <label for="file">Choose file to upload</label><br>
                                     <input type="file" id="file" name="image_file" accept="image/*">
-                                    <input type="text" name="pa_token_form" id="pa" value="aaaaaaaa" hidden>
+                                    <input type="text" name="pa_token_form" id="pa" value="" hidden>
                                     <input class="btn btn-primary" type="submit" value="Submit">
                                 </form>
                                 <!--end of profile pic html-->
@@ -122,7 +122,7 @@
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Full Name</h6>
                             </div>
-                            <input class="col-sm-9 text-secondary" type="text" id="userName" placeholder="Jane Doe"
+                            <input class="col-sm-9 text-secondary" type="text" id="userName" placeholder="Loading"
                                 disabled="true">
                         </div>
                         <hr>
@@ -175,10 +175,10 @@
                     <div class="col-sm-6 mb-3">
                         <div class="card h-100">
                             <div class="card-body">
-                                <h6 class="d-flex align-items-center mb-3"><i
-                                        class="material-icons text-info mr-2">calendar</i>Month
-                                    View</h6>
-
+                                <h6 class="d-flex align-items-center mb-3">
+                                    <i class="material-icons text-info mr-2">calendar</i>
+                                    Month View
+                                </h6>
                             </div>
                         </div>
                     </div>
@@ -214,12 +214,8 @@
 
     <script>
         function enable() {
-            const form = document.getElementById('user-portfolio');
-
             $('#user-portfolio input').each(function () {
                 this.disabled = false;
-
-
             });
         }
     </script>
@@ -271,8 +267,8 @@
                 }
             )
                 .then((resp) => resp.json())
-                .then((pasredJSON) => {
-                    console.log(pasredJSON);
+                .then((parsedJSON) => {
+                    console.log(parsedJSON);
                     location.reload();
                 });
         });
@@ -281,8 +277,7 @@
         function uploadImage() {
             //this uploads an image to the server
             //references the above form
-            const paToken = document.getElementById("pa");
-            paToken.value = getCookie("pa-token");
+            document.getElementById("pa").value = getCookie("pa-token");
             const xhr = new XMLHttpRequest();
             const fd = new FormData(form)
             xhr.addEventListener("load", function(event) {changeProfile(JSON.parse(event.target.responseText))})
@@ -344,7 +339,5 @@
             $("#footer-placeholder").load("footer.html");
         });
     </script>
-
 </body>
-
 </html>
