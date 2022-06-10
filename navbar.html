@@ -21,13 +21,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
+                    <a class="nav-link" id="navbarLoginButton" href="login.html">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logout.html">Logout</a>
+                    <a class="nav-link" id="navbarLogoutButton" href="logout.html">Logout</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register.html">Register</a>
+                    <a class="nav-link" id="navbarRegisterButton" href="register.html">Register</a>
                 </li>
                 <li class="nav-item">
                     <img src="static/image/defaultProfilePic.jpeg" alt="" id="navbarProfilePic">
@@ -41,7 +41,12 @@
     import {getCookie} from "./static/js/cookies.js"; // need set to code block to type="module"
     if(getCookie("pa-token") === "" || getCookie("pa-token") === null){
         document.getElementById("navbarProfilePic").src = "static/image/defaultProfilePic.jpeg";
+        // Hide these button if not authenticated
+        document.getElementById("navbarLogoutButton").remove();
     }else{
+        // Hide these button after login since they're no longer useful
+        document.getElementById("navbarLoginButton").remove();
+        document.getElementById("navbarRegisterButton").remove();
         document.getElementById("navbarProfilePic").src = "static/image/planAt.png";
         document.getElementById("userCalendarPageLink").href = `https://calendar.752628.xyz/?pa-token=${getCookie("pa-token")}`;
         // TODO: put actual person_id here
