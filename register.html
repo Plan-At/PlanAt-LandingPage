@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="css/app.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <title>Register - PlanAt</title>
 </head>
@@ -239,10 +239,14 @@
         }
     </script>
 
-    <script>
-        $(function () { $("#navbar-placeholder").load("navbar.html"); });
-        $(function () { $("#footer-placeholder").load("footer.html"); });
-    </script>
-
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+    $(function () {
+        $("#navbar-placeholder").load("navbar.html");
+    });
+    $(function () {
+        $("#footer-placeholder").load("footer.html");
+    });
+</script>
 </body>
 </html>
