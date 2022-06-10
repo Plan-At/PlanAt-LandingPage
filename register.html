@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="static/css/app.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <title>Register - PlanAt</title>
 </head>
@@ -148,7 +148,8 @@
                             "person_id": resp_json["person_id"],
                             "password": document.getElementById("formPassword").value
                         }));
-                        //this creates a new xml request to fill the backend storage witht he information the user entered in their registration sign in sheet
+                        // This creates a new xml request to fill the backend storage with
+                        // the information the user entered in their registration sign in sheet
                         var xmlHttp2 = new XMLHttpRequest();
                         xmlHttp2.onload = function () {
                             console.log(this.responseText, this.status);
@@ -245,7 +246,7 @@
         }
     </script>
 <!--Loading the navbar and footer-->
-<script src="js/bootstrap.bundle.min.js"></script>
+<script src="static/js/bootstrap.bundle.min.js"></script>
 <script>
     $(function () {
         $("#navbar-placeholder").load("navbar.html");

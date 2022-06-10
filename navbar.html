@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg py-3 sticky-top navbar-light bg-white">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="logo1">
-            <b >PLANAT</b>
+        <a class="navbar-brand" href="index.html" id="logo1">
+            <b>PLANAT</b>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,15 +22,14 @@
                     <a class="nav-link" href="profile.html">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#calendar">Calendar</a>
+                    <a class="nav-link" href="https://calendar.752628.xyz/">Calendar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
                 <li class="nav-item">
-                    <img src="images/defaultProfilePic.jpeg" alt="" id="profilePic">
+                    <img src="static/image/defaultProfilePic.jpeg" alt="" id="profilePic">
                 </li>
-                
             </ul>
             <button class="btn btn-primary ms-lg-3">Join Us</button>
         </div>
@@ -39,8 +38,8 @@
 <script type="module">
     import {getCookie} from "./static/js/cookies.js"; // need set to code block to type="module"
     if(getCookie("pa-token") === "" || getCookie("pa-token") === null){
-        document.getElementById("profilePic").src = "images/defaultProfilePic.jpeg";
+        document.getElementById("profilePic").src = "static/image/defaultProfilePic.jpeg";
     }else{
-        document.getElementById("profilePic").src = "images/planAt.png";
+        document.getElementById("profilePic").src = "static/image/planAt.png";
     }
 </script>
