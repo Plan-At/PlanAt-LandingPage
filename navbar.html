@@ -28,7 +28,7 @@
                     <a class="nav-link" href="register.html">Register</a>
                 </li>
                 <li class="nav-item">
-                    <img src="static/image/defaultProfilePic.jpeg" alt="" id="profilePic">
+                    <img src="static/image/defaultProfilePic.jpeg" alt="" id="navbarProfilePic">
                 </li>
             </ul>
             <button class="btn btn-primary ms-lg-3">Join Us</button>
@@ -38,8 +38,12 @@
 <script type="module">
     import {getCookie} from "./static/js/cookies.js"; // need set to code block to type="module"
     if(getCookie("pa-token") === "" || getCookie("pa-token") === null){
-        document.getElementById("profilePic").src = "static/image/defaultProfilePic.jpeg";
+        document.getElementById("navbarProfilePic").src = "static/image/defaultProfilePic.jpeg";
     }else{
-        document.getElementById("profilePic").src = "static/image/planAt.png";
+        document.getElementById("navbarProfilePic").src = "static/image/planAt.png";
+        // TODO: put actual person_id here
+        fetch("https://api.752628.xyz/v2/user/profile/get?person_id=1234567890")
+            .then((resp) => resp.json())
+            .then((parsedJSON) => document.getElementById("navbarProfilePic").src = parsedJSON["picture"]["avatar"]["image_url"]);
     }
 </script>

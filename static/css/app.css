@@ -291,7 +291,7 @@ form .form-control {
   .form-input input:focus::placeholder {
     color: #454b69;
   }
-  #profilePic{
+  #navbarProfilePic{
     object-fit: contain;
     height:60px;
    width: 60px;

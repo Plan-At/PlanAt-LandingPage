@@ -204,12 +204,11 @@
         // TODO: put actual person_id here
         fetch("https://api.752628.xyz/v2/user/profile/get?person_id=1234567890")
             .then((resp) => resp.json())
-            .then((pasredJSON) => {
-                console.log(pasredJSON);
-                document.getElementById("myName").innerText = pasredJSON["naming"]["display_name_full"];
-                document.getElementById("userName").placeholder = pasredJSON["naming"]["display_name_full"];
-                document.getElementById("profilePicture").src = pasredJSON["picture"]["avatar"]["image_url"];
-                document.getElementById("profilePic").src = pasredJSON["picture"]["avatar"]["image_url"]; // the one on the navbar
+            .then((parsedJSON) => {
+                console.log(parsedJSON);
+                document.getElementById("myName").innerText = parsedJSON["naming"]["display_name_full"];
+                document.getElementById("userName").placeholder = parsedJSON["naming"]["display_name_full"];
+                document.getElementById("profilePicture").src = parsedJSON["picture"]["avatar"]["image_url"];
             });
     </script>
 
@@ -315,8 +314,8 @@
                 }
             )
                 .then((resp) => resp.json())
-                .then((pasredJSON) => {
-                    console.log(pasredJSON);
+                .then((parsedJSON) => {
+                    console.log(parsedJSON);
                     location.reload();
                 });
             form.style.display = "none";
