@@ -33,7 +33,7 @@
                     <img src="static/image/defaultProfilePic.jpeg" alt="Profile Picture" id="navbarProfilePic">
                 </li>
             </ul>
-            <button class="btn btn-primary ms-lg-3">Join Us</button>
+            <button class="btn btn-primary ms-lg-3" id="navbarJoinButton">Join Us</button>
         </div>
     </div>
 </nav>
@@ -48,6 +48,7 @@
             document.getElementById("navbarLogoutButton").remove();
             document.getElementById("navbarProfilePic").remove();
             document.getElementById("navbarProfileButton").remove();
+            document.getElementById("navbarJoinButton").remove();
         }
         else {
             // Hide these button after login since they're no longer useful
