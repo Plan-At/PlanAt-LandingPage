@@ -200,16 +200,21 @@
     <!--The js is so we can use the footer in multiple pages-->
     <div id="footer-placeholder"></div>
 
-    <script>
-        // TODO: put actual person_id here
-        fetch("https://api.752628.xyz/v2/user/profile/get?person_id=1234567890")
-            .then((resp) => resp.json())
-            .then((parsedJSON) => {
-                console.log(parsedJSON);
-                document.getElementById("myName").innerText = parsedJSON["naming"]["display_name_full"];
-                document.getElementById("userName").placeholder = parsedJSON["naming"]["display_name_full"];
-                document.getElementById("profilePicture").src = parsedJSON["picture"]["avatar"]["image_url"];
-            });
+    <script type="module">
+        import {getPersonID} from "./static/js/pa_api.js";
+
+        async function onLoad(){
+            const person_id = await getPersonID();
+            let resp = await fetch(`https://api.752628.xyz/v2/user/profile/get?person_id=${person_id}`);
+            let parsedJSON = await resp.json();
+            console.log(parsedJSON);
+            document.getElementById("myName").innerText = parsedJSON["naming"]["display_name_full"];
+            document.getElementById("userName").placeholder = parsedJSON["naming"]["display_name_full"];
+            document.getElementById("profilePicture").src = parsedJSON["picture"]["avatar"]["image_url"];
+            document.getElementById("userJob").innerText = parsedJSON["about"]["job_title"];
+        }
+
+        onLoad();
     </script>
 
     <script>
