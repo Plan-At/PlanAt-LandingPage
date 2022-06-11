@@ -38,20 +38,28 @@
     </div>
 </nav>
 <script type="module">
-    import {getCookie} from "./static/js/cookies.js"; // need set to code block to type="module"
-    if(getCookie("pa-token") === "" || getCookie("pa-token") === null){
-        document.getElementById("navbarProfilePic").src = "static/image/defaultProfilePic.jpeg";
-        // Hide these button if not authenticated
-        document.getElementById("navbarLogoutButton").remove();
-    }else{
-        // Hide these button after login since they're no longer useful
-        document.getElementById("navbarLoginButton").remove();
-        document.getElementById("navbarRegisterButton").remove();
-        document.getElementById("navbarProfilePic").src = "static/image/planAt.png";
-        document.getElementById("userCalendarPageLink").href = `https://calendar.752628.xyz/?pa-token=${getCookie("pa-token")}`;
-        // TODO: put actual person_id here
-        fetch("https://api.752628.xyz/v2/user/profile/get?person_id=1234567890")
-            .then((resp) => resp.json())
-            .then((parsedJSON) => document.getElementById("navbarProfilePic").src = parsedJSON["picture"]["avatar"]["image_url"]);
+    import {getCookie} from "./static/js/cookies.js";
+    import {getPersonID} from "./static/js/pa_api.js"; // need set to code block to type="module"
+
+    async function onLoad() {
+        if(getCookie("pa-token") === "" || getCookie("pa-token") === null){
+            document.getElementById("navbarProfilePic").src = "static/image/defaultProfilePic.jpeg";
+            // Hide these button if not authenticated
+            document.getElementById("navbarLogoutButton").remove();
+        }else{
+            // Hide these button after login since they're no longer useful
+            document.getElementById("navbarLoginButton").remove();
+            document.getElementById("navbarRegisterButton").remove();
+            document.getElementById("navbarProfilePic").src = "static/image/planAt.png";
+            document.getElementById("userCalendarPageLink").href = `https://calendar.752628.xyz/?pa-token=${getCookie("pa-token")}`;
+
+            const person_id = await getPersonID();
+            let resp = await fetch(`https://api.752628.xyz/v2/user/profile/get?person_id=${person_id}`);
+            let parsedJSON = await resp.json();
+            console.log(parsedJSON);
+            document.getElementById("navbarProfilePic").src = parsedJSON["picture"]["avatar"]["image_url"];
+        }
     }
+
+    onLoad();
 </script>
