@@ -13,7 +13,7 @@
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profile.html">Profile</a>
+                    <a class="nav-link" id="navbarProfileButton" href="profile.html">Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="userCalendarPageLink" href="https://calendar.752628.xyz/" target="_blank">
@@ -41,13 +41,15 @@
     import {getCookie} from "./static/js/cookies.js";
     import {getPersonID} from "./static/js/pa_api.js"; // need set to code block to type="module"
 
-    async function onLoad() {
-        if(getCookie("pa-token") === "" || getCookie("pa-token") === null){
+    async function navbarOnLoad() {
+        if (getCookie("pa-token") === "" || getCookie("pa-token") === null) {
             document.getElementById("navbarProfilePic").src = "static/image/defaultProfilePic.jpeg";
             // Hide these button if not authenticated
             document.getElementById("navbarLogoutButton").remove();
             document.getElementById("navbarProfilePic").remove();
-        }else{
+            document.getElementById("navbarProfileButton").remove();
+        }
+        else {
             // Hide these button after login since they're no longer useful
             document.getElementById("navbarLoginButton").remove();
             document.getElementById("navbarRegisterButton").remove();
@@ -61,5 +63,5 @@
         }
     }
 
-    onLoad();
+    navbarOnLoad();
 </script>
