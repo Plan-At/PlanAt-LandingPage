@@ -34,7 +34,7 @@
                                 alt="User's Profile Picture" class="rounded-circle" width="150" id="profilePicture">
                             <div class="mt-3">
                                 <!--User information-->
-                                <h4 id="myName">Jane Doe</h4>
+                                <h4 id="userNameLarge">Jane Doe</h4>
                                 <p class="text-secondary mb-1" id="userJob">Job Position</p>
                                 <p class="text-muted font-size-sm" id="userLocation">Seattle, WA</p>
                                 <button class="btn btn-primary">Follow</button>
@@ -197,23 +197,28 @@
         </div>
     </div>
 
-    <!--The js is so we can use the footer in multiple pages-->
     <div id="footer-placeholder"></div>
 
     <script type="module">
         import {getPersonID} from "./static/js/pa_api.js";
+        import {setEditableField} from "./static/js/htmlHelper.js";
 
         async function onLoad(){
             const person_id = await getPersonID();
             let resp = await fetch(`https://api.752628.xyz/v2/user/profile/get?person_id=${person_id}`);
             let parsedJSON = await resp.json();
             console.log(parsedJSON);
-            document.getElementById("myName").innerText = parsedJSON["naming"]["display_name_full"];
-            document.getElementById("userName").placeholder = parsedJSON["naming"]["display_name_full"];
+            // Upper Left Section
+            document.getElementById("userNameLarge").innerText = parsedJSON["naming"]["display_name_full"];
             document.getElementById("profilePicture").src = parsedJSON["picture"]["avatar"]["image_url"];
             document.getElementById("userJob").innerText = parsedJSON["about"]["job_title"];
+            // Editing form
+            setEditableField("userName", parsedJSON["naming"]["display_name_full"]);
+            setEditableField("email", parsedJSON["contact_method_collection"]["email_primary"]["full_address"]);
+            setEditableField("phoneNumber", parsedJSON["contact_method_collection"]["phone"]["regular_number"]);
+            setEditableField("company", parsedJSON["about"]["company_name"]);
+            setEditableField("address", parsedJSON["contact_method_collection"]["physical_address"]["full_address"]);
         }
-
         onLoad();
     </script>
 
