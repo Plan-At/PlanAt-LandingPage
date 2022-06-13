@@ -17,14 +17,17 @@
 </head>
 <body>
     <div id="navbar-placeholder"></div>
-    <button type="button" class="btn btn-primary" onclick="logoutButton()">Clear cookie</button>
-    <script>
-        function logoutButton() {
+    <button type="button" class="btn btn-primary" id="logoutButton">Clear cookie</button>
+    <script type="module">
+        import {setCookie} from "./static/js/cookies.js";
+
+        $("#logoutButton").click(function () {
+            console.log("button clicked");
             if (confirm(`You Are About to Log out`)) {
-                document.cookie = "pa-token=";
+                setCookie("pa-token", "", 365);
                 location.href = "index.html";
             }
-        }
+        });
     </script>
     <div id="footer-placeholder"></div>
     <!--  reuse the footer in multiple pages vs jQuery-->
