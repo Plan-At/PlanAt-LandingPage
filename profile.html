@@ -198,6 +198,8 @@
             setEditableField("formPhoneNumber", parsedJSON["contact_method_collection"]["phone"]["regular_number"]);
             setEditableField("formCompany", parsedJSON["about"]["company_name"]);
             setEditableField("formAddress", parsedJSON["contact_method_collection"]["physical_address"]["full_address"]);
+            // hide button by default
+            $('#save, #cancel').hide();
         }
         profileOnLoad();
 
@@ -214,20 +216,15 @@
         $('#cancel').click(function () {
             $('#update').show();
             $('#save, #cancel').hide();
-            const form = document.getElementById('user-portfolio');
-
             $('#user-portfolio input').each(function () {
                 this.disabled = true;
-
             });
-
         });
 
         $('#save').click(function () {
             $(this).hide();
             $('#cancel').hide();
             $('#update').show();
-            const form = document.getElementById('user-portfolio');
 
             $('#user-portfolio input').each(function () {
                 this.disabled = true;
